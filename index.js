@@ -34,3 +34,13 @@ if (method == "POST" && resource == "products") {
     .then((response) => response.json())
     .then((data) => console.log(data));
 }
+
+if (method == "DELETE" && resource.startsWith("products/")) {
+  const id = parseInt(resource.split("/")[1]);
+
+  fetch(`https://fakestoreapi.com/products/${id}`, {
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
